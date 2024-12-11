@@ -14,9 +14,9 @@ def run_raffle():
     winner_label['text'] = ""
 
     # Create a spinning effect
-    for _ in range(20):  # Adjust the range for longer or shorter spinning
+    for _ in range(40):  # Adjust the range for longer or shorter spinning
         random_index = random.randint(0, len(data) - 1)
-        spinning_label['text'] = f"Shuffling:\n{data.iloc[random_index]['Name of first co-author']} & {data.iloc[random_index]['Name of second co-author']}" \
+        spinning_label['text'] = f"The selection board are carefully considering the following application:\n{data.iloc[random_index]['Name of first co-author']} & {data.iloc[random_index]['Name of second co-author']}" \
                                  f"\n\n{data.iloc[random_index]['Enter a combination of research areas']}"
         spinning_label.update()
         sleep(0.1)
@@ -47,11 +47,11 @@ frame.grid_rowconfigure(2, weight=1)
 frame.grid_columnconfigure(0, weight=1)
 
 # Spinning label
-spinning_label = ttk.Label(frame, text="Press the button to spin!", font=("Helvetica", 24), anchor="center", justify="center")
+spinning_label = ttk.Label(frame, text="Press the button to remind reviewers of the deadline!", font=("Helvetica", 24), anchor="center", justify="center")
 spinning_label.grid(row=0, column=0, pady=10, sticky="nsew")
 
 # Raffle button
-raffle_button = ttk.Button(frame, text="Run Raffle", command=run_raffle)
+raffle_button = ttk.Button(frame, text="Select the 'best' grant!", command=run_raffle)
 raffle_button.grid(row=1, column=0, pady=10, sticky="nsew")
 
 # Winner label
